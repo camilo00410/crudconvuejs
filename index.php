@@ -34,7 +34,7 @@
                     </button>
                 </div>
                 <div class="col text-right">
-                    <h5>Stock Total: <span class="bagde badge-success"></span></h5>
+                    <h5>Stock Total: <span class="bagde badge-success">{{totalStock}}</span></h5>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                             </td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <button class="btn btn-secondary" title="Editar" @click="btnEditar(movil.id, movil.marca, mocil.modelo, movil.stock)">
+                                    <button class="btn btn-secondary" title="Editar" @click="btnEditar(movil.id, movil.marca, movil.modelo, movil.stock)">
                                         <i class="fas fa-pencil-alt"></i>                                    
                                     </button>
                                     <button class="btn btn-danger" title="Eliminar" @click="btnBorrar(movil.id)">
