@@ -1,7 +1,7 @@
-<?php+
+<?php
 include_once 'conexion.php';
 
-$objeto = new conexion;
+$objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
 // Necesario para recibir parametros con Axios
@@ -9,7 +9,6 @@ $_POST = json_decode(file_get_contents("php://input"), true);
 
 // Recepcion de los datos enviados mediante POST desde main.js
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
-
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 $marca = (isset($_POST['marca'])) ? $_POST['marca'] : '';
 $modelo = (isset($_POST['modelo'])) ? $_POST['modelo'] : '';
@@ -32,11 +31,11 @@ switch($opcion){
         $resultado->execute();
         break;
     case 4: //listar
-        $consulta = "SELECT id. marca, modelo, stock FROM moviles";
+        $consulta = "SELECT id, marca, modelo, stock FROM moviles";
         $resultado = $conexion->prepare($consulta);
         $resultado->execute();
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
-        break;
+        break;  
 }
 
 print json_encode($data, JSON_UNESCAPED_UNICODE); //enviar el array final en formato json a js

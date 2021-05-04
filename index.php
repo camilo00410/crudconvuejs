@@ -42,7 +42,7 @@
                 <div class="col-lg-12">
                     <table class="table table-striped">
                         <thead>
-                        <tr>
+                        <tr class="bg-primary text-light">
                                 <th>Id</th>
                                 <th>Marca</th>
                                 <th>Modelo</th>
@@ -51,7 +51,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                           <tr v-for="(movil, indice) of moviles">
+                           <tr v-for="(movil,indice) of moviles">
                             <td>{{movil.id}}</td>
                             <td>{{movil.marca}}</td>
                             <td>{{movil.modelo}}</td>
@@ -91,7 +91,7 @@
 
 
     <!-- Axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>    
 
     <!-- Sweet Alert 2 -->
     <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>  
