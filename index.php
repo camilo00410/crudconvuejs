@@ -34,7 +34,7 @@
                     </button>
                 </div>
                 <div class="col text-right">
-                    <h5>Stock Total: <span class="bagde badge-success">{{totalStock}}</span></h5>
+                    <h5>Stock Total: <span class="bagde badge-success"></span></h5>
                 </div>
             </div>
 
@@ -87,13 +87,14 @@
 
 
     <!-- Vue.js -->
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>  
+
 
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- Sweet Alert 2 -->
-    <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>  
 
     <!-- Codigo custom -->
     <script src="main.js"></script>

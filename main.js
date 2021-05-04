@@ -1,3 +1,4 @@
+var url = "bd/crud.php";
 var appMoviles = new Vue({
     el: '#appMoviles',
     data: {
@@ -10,27 +11,46 @@ var appMoviles = new Vue({
     methods:{
         // BOTONES
         btnAlta: async function(){
-            const { value: formValues } = await Swal.fire({
-                title: 'Multiple inputs',
+            const {value: formValues} = await Swal.fire({
+                title: 'NUEVO',
                 html:
-                  '<input id="swal-input1" class="swal2-input">' +
-                  '<input id="swal-input2" class="swal2-input">',
+                '<div class="row"><label class="col-sm-3 col-form-label">Marca</label><div class="col-sm-7"><input id="marca" type="text" class="form-control"></div></div><div class="row"><label class="col-sm-3 col-form-label">Modelo</label><div class="col-sm-7"><input id="modelo" type="text" class="form-control"></div></div><div class="row"><label class="col-sm-3 col-form-label">Stock</label><div class="col-sm-7"><input id="stock" type="number" min="0" class="form-control"></div></div>',              
                 focusConfirm: false,
-                preConfirm: () => {
-                  return [
-                    document.getElementById('swal-input1').value,
-                    document.getElementById('swal-input2').value
-                  ]
+                showCancelButton: true,
+                confirmButtonText: 'Guardar',          
+                confirmButtonColor:'#1cc88a',          
+                cancelButtonColor:'#3085d6',  
+                preConfirm: () => {            
+                    return [
+                      this.marca = document.getElementById('marca').value,
+                      this.modelo = document.getElementById('modelo').value,
+                     this.stock = document.getElementById('stock').value                    
+                    ]
+                  }
+                })        
+                if(this.marca == "" || this.modelo == "" || this.stock == 0){
+                        Swal.fire({
+                          type: 'info',
+                          title: 'Datos incompletos',                                    
+                        }) 
+                }       
+                else{          
+                  this.altaMovil();          
+                  const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      showConfirmButton: false,
+                      timer: 3000
+                    });
+                    Toast.fire({
+                      type: 'success',
+                      title: '¡Producto Agregado!'
+                    })                
                 }
-              })
-              
-              if (formValues) {
-                Swal.fire(JSON.stringify(formValues))
-              }
-        },
+            },  
         btnEditar: async function(){},
         btnBorrar: function(){}
     },
     created: function(){},
     computed:{}
-})
+});
